@@ -1,107 +1,678 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Sienna Talles | Data Science Portfolio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Sienna Talles — Data Science, Math & Business Analytics. Projects in statistical modeling, machine learning, and applied data engineering.">
+<title>Sienna Talles | Data Science, Math & Business Analytics</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23161f2c'/%3E%3Ctext x='32' y='43' font-family='Arial, sans-serif' font-weight='700' font-size='26' fill='white' text-anchor='middle'%3EST%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1d23;
+    --muted: #667085;
+    --muted-soft: #94a3b8;
+    --line: #e3e8f2;
+    --accent: #2c5aa0;
+    --accent-dark: #1e4278;
+    --accent-soft: #e8f0fb;
+    --bg: #f6f8fc;
+    --card: #ffffff;
+    --navy: #161f2c;
+    --navy-2: #22344b;
+    --navy-soft: #b9c6da;
+    --radius: 14px;
+    --radius-sm: 20px;
+    --shadow-sm: 0 1px 2px rgba(15,23,42,.05), 0 1px 4px rgba(15,23,42,.05);
+    --shadow-md: 0 12px 28px rgba(15,23,42,.10);
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    color: var(--ink);
+    background: var(--bg);
+    line-height: 1.6;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { color: var(--accent-dark); text-decoration: underline; }
 
-    <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-            margin: 60px auto;
-            max-width: 900px;
-            line-height: 1.6;
-            color: #222;
-        }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 0 24px; }
 
-        h1 {
-            font-size: 42px;
-            margin-bottom: 5px;
-        }
+  /* Hero */
+  header.hero {
+    padding: 96px 0 60px;
+    background-color: var(--navy);
+    background-image:
+      radial-gradient(rgba(255,255,255,.07) 1px, transparent 1.5px),
+      linear-gradient(160deg, var(--navy) 0%, var(--navy-2) 100%);
+    background-size: 22px 22px, auto;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+  }
+  .icon-row { display: inline-flex; align-items: center; gap: 6px; }
+  .icon-row svg { flex-shrink: 0; }
+  header.hero::before {
+    content: '';
+    position: absolute;
+    top: -120px; right: -120px;
+    width: 360px; height: 360px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(126,166,224,.16) 0%, rgba(126,166,224,0) 70%);
+  }
+  header.hero .wrap { position: relative; }
+  .hero-row { display: flex; align-items: center; gap: 32px; }
+  .hero-photo {
+    width: 136px;
+    height: 136px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    box-shadow: 0 0 0 4px rgba(255,255,255,.12), var(--shadow-md);
+  }
+  header.hero h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin: 0 0 12px;
+    letter-spacing: -0.02em;
+    color: #fff;
+  }
+  .role {
+    display: inline-block;
+    background: rgba(255,255,255,.09);
+    color: #cfe0f7;
+    font-weight: 600;
+    font-size: 0.85rem;
+    padding: 5px 14px;
+    border-radius: var(--radius-sm);
+    letter-spacing: 0.01em;
+  }
+  header.hero p.summary {
+    color: var(--navy-soft);
+    max-width: 620px;
+    font-size: 1.03rem;
+    margin: 24px 0 0;
+  }
+  .contact-row {
+    margin-top: 22px;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    font-size: 0.9rem;
+  }
+  .contact-row a, .contact-row span {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--navy-soft);
+    transition: color .15s ease;
+  }
+  .contact-row svg { flex-shrink: 0; opacity: .85; }
+  .contact-row a:hover { color: #fff; text-decoration: none; }
 
-        h2 {
-            margin-top: 50px;
-            border-bottom: 1px solid #ddd;
-            padding-bottom: 5px;
-        }
+  /* Nav */
+  nav.subnav {
+    position: sticky;
+    top: 0;
+    background: rgba(246,248,252,.86);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+    padding: 14px 0;
+    z-index: 10;
+  }
+  nav.subnav .wrap { display: flex; gap: 28px; }
+  nav.subnav a {
+    color: var(--ink);
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding-bottom: 2px;
+    border-bottom: 2px solid transparent;
+    transition: border-color .15s ease, color .15s ease;
+  }
+  nav.subnav a:hover { color: var(--accent); text-decoration: none; border-bottom-color: var(--accent); }
 
-        .subtitle {
-            color: #666;
-            font-size: 18px;
-            margin-bottom: 40px;
-        }
+  /* Sections */
+  section { padding: 64px 0; border-bottom: 1px solid var(--line); }
+  section:last-of-type { border-bottom: none; }
+  section h2 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin: 0 0 32px;
+    letter-spacing: -0.01em;
+  }
 
-        .project {
-            margin-bottom: 35px;
-        }
+  /* Projects */
+  .project-card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+    padding: 28px 28px 26px;
+    margin-bottom: 22px;
+    transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+  }
+  .project-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+    border-color: #c9d7ee;
+  }
+  .project-head {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 18px;
+  }
+  .project-icon {
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+    border-radius: 12px;
+    background: var(--accent-soft);
+    color: var(--accent-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .project-card h3 {
+    margin: 0 0 6px;
+    font-size: 1.12rem;
+    letter-spacing: -0.01em;
+  }
+  .project-card .tagline {
+    color: var(--muted);
+    font-size: 0.93rem;
+  }
+  .project-card .team-credit {
+    color: var(--muted-soft);
+    font-size: 0.85rem;
+    margin-top: 4px;
+  }
+  .project-card .detail-label {
+    font-weight: 700;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--accent-dark);
+    margin-top: 14px;
+    margin-bottom: 5px;
+  }
+  .detail-text { margin: 0; color: var(--muted); font-size: 0.93rem; line-height: 1.6; }
+  .tools {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+  }
+  .tools span {
+    background: var(--accent-soft);
+    color: var(--accent-dark);
+    font-weight: 600;
+    font-size: 0.77rem;
+    padding: 4px 11px;
+    border-radius: var(--radius-sm);
+  }
+  .project-details { margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--line); }
+  .project-details summary {
+    list-style: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: var(--accent);
+  }
+  .project-details summary::-webkit-details-marker { display: none; }
+  .project-details summary .chev { transition: transform .2s ease; }
+  .project-details[open] summary .chev { transform: rotate(90deg); }
+  .details-body { padding-top: 16px; }
+  .details-body .detail-label:first-child { margin-top: 0; }
+  .project-card .links { margin-top: 16px; font-size: 0.88rem; font-weight: 600; }
+  .project-card .links .sep { color: var(--muted-soft); font-weight: 400; margin: 0 4px; }
 
-        a {
-            color: #0077cc;
-            text-decoration: none;
-        }
+  /* Experience */
+  .exp-list { position: relative; padding-left: 22px; }
+  .exp-item { position: relative; margin-bottom: 30px; padding-left: 4px; border-left: 2px solid var(--line); padding-left: 22px; margin-left: -22px; }
+  .exp-item::before {
+    content: '';
+    position: absolute;
+    left: -5px; top: 5px;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-soft);
+  }
+  .exp-item:last-child { margin-bottom: 0; }
+  .exp-head {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin-bottom: 5px;
+  }
+  .exp-head .title { font-weight: 700; }
+  .exp-head .org { color: var(--accent); font-weight: 600; }
+  .exp-head .dates { color: var(--muted-soft); font-size: 0.85rem; white-space: nowrap; font-weight: 600; }
+  .exp-item ul { margin: 6px 0 0; padding-left: 20px; color: var(--muted); font-size: 0.94rem; }
+  .exp-item li { margin-bottom: 4px; }
 
-        a:hover {
-            text-decoration: underline;
-        }
+  /* Skills */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+  }
+  .skills-grid .group h4 {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin: 0 0 12px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted-soft);
+  }
+  .pill-list { display: flex; flex-wrap: wrap; gap: 8px; }
+  .pill-list span {
+    background: var(--card);
+    border: 1px solid var(--line);
+    padding: 5px 13px;
+    border-radius: var(--radius-sm);
+    font-size: 0.87rem;
+    font-weight: 500;
+  }
 
-        .skills span {
-            background: #f2f2f2;
-            padding: 6px 10px;
-            margin: 5px;
-            display: inline-block;
-            border-radius: 5px;
-            font-size: 14px;
-        }
-    </style>
+  /* Education / Awards */
+  .edu-item { position: relative; margin-bottom: 22px; padding-left: 22px; border-left: 2px solid var(--line); margin-left: -22px; }
+  .edu-item::before {
+    content: '';
+    position: absolute;
+    left: -5px; top: 5px;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-soft);
+  }
+  .edu-item:last-child { margin-bottom: 0; }
+  .edu-item .title { font-weight: 700; }
+  .edu-item .org { color: var(--accent); font-weight: 600; font-size: 0.94rem; }
+  .edu-item .dates { color: var(--muted-soft); font-size: 0.85rem; font-weight: 600; }
+  .edu-item p { color: var(--muted); font-size: 0.92rem; margin: 6px 0 0; }
+
+  footer {
+    padding: 44px 0 72px;
+    text-align: center;
+    color: var(--muted-soft);
+    font-size: 0.84rem;
+  }
+
+  @media (max-width: 600px) {
+    header.hero { padding: 64px 0 44px; }
+    nav.subnav .wrap { gap: 16px; overflow-x: auto; }
+    section { padding: 48px 0; }
+    .skills-grid { grid-template-columns: 1fr; }
+    .exp-head { flex-direction: column; }
+    .hero-row { flex-direction: column; align-items: flex-start; gap: 20px; }
+    .hero-photo { width: 104px; height: 104px; }
+    header.hero h1 { font-size: 2rem; }
+  }
+</style>
 </head>
-
 <body>
 
-<h1>Sienna Talles</h1>
-<p class="subtitle">Data Science & Mathematics Student</p>
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-row">
+      <img src="headshot.jpg" alt="Sienna Talles" class="hero-photo">
+      <div>
+        <h1>Sienna Talles</h1>
+        <div class="role">Data Science, Math & Business Analytics</div>
+      </div>
+    </div>
+    <p class="summary">
+      Rising junior studying data science, math, and business analytics at WashU, focused on how
+      companies use data to inform real decisions. A creative problem solver and collaborative teammate,
+      comfortable across the full workflow: data engineering, analysis, visualization, and
+      communicating findings clearly.
+    </p>
+    <div class="contact-row">
+      <a href="mailto:siennatalles@gmail.com"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>siennatalles@gmail.com</a>
+      <span><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>(917) 612-9283</span>
+      <a href="https://www.linkedin.com/in/sienna-talles/" target="_blank"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a5 5 0 0 0 7.5.5l2-2a5 5 0 0 0-7-7l-1 1"/><path d="M14 10a5 5 0 0 0-7.5-.5l-2 2a5 5 0 0 0 7 7l1-1"/></svg>LinkedIn</a>
+      <a href="https://github.com/siennatalles" target="_blank"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="3" x2="6" y2="15"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="6" r="3"/><path d="M18 9a9 9 0 0 1-9 9"/></svg>GitHub</a>
+    </div>
+  </div>
+</header>
 
-<h2>About Me</h2>
-<p>
-I am a data science and mathematics student with a strong foundation in statistical modeling, 
-linear algebra, and algorithmic thinking. I am particularly interested in using data-driven methods 
-to solve complex real-world problems through rigorous quantitative analysis.
-</p>
+<nav class="subnav">
+  <div class="wrap">
+    <a href="#projects">Projects</a>
+    <a href="#experience">Experience</a>
+    <a href="#skills">Skills</a>
+    <a href="#education">Education & Awards</a>
+  </div>
+</nav>
 
-<h2>Skills</h2>
-<div class="skills">
-    <span>Python</span>
-    <span>pandas</span>
-    <span>NumPy</span>
-    <span>scikit-learn</span>
-    <span>SQL</span>
-    <span>R</span>
-    <span>Linear Algebra</span>
-    <span>Statistical Modeling</span>
-</div>
+<section id="projects">
+  <div class="wrap">
+    <h2>Projects</h2>
 
-<h2>Projects</h2>
+    <div class="project-card">
+      <div class="project-head">
+        <div class="project-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l2-7 4 14 2-7h6"/></svg></div>
+        <div>
+          <h3>Analyzing Encounter Duration in the SVH System — ASA DataFest</h3>
+          <div class="tagline">Best Use of Statistical Analysis Award, 18 teams, 5 universities</div>
+          <div class="team-credit">With teammates Chloe Shin, Melissa Wang, Harrison Arons, and Zhiyao Wu</div>
+        </div>
+      </div>
+      <div class="tools">
+        <span>Python</span><span>Machine Learning</span><span>GLM (Gamma / log-link)</span><span>XGBoost</span><span>Random Forest</span>
+        <span>ICD-10 Classification</span><span>Data Visualization</span>
+      </div>
+      <details class="project-details">
+        <summary><svg class="chev" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>Problem, approach & results</summary>
+        <div class="details-body">
+          <div class="detail-label">Problem</div>
+          <p class="detail-text">
+            48-hour undergraduate data competition at the University of Missouri. SVH's goal was to
+            improve patient experience, so we analyzed how clinical diagnosis, seasonality, and
+            department affect a patient's length of stay in their hospital dataset.
+          </p>
+          <div class="detail-label">Approach</div>
+          <p class="detail-text">
+            GLM with a Gamma distribution and log link, ICD-10 chapter classification, and machine
+            learning models including XGBoost.
+          </p>
+          <div class="detail-label">Results</div>
+          <p class="detail-text">
+            Best Use of Statistical Analysis award among 18 teams, 5 universities. We pinpointed which
+            departments, diseases, and months/seasons had longest length of stay on average, giving SVH
+            guidance on where to reallocate resources. Non-flu season stays were 3% shorter than flu
+            season stays (p &lt; 0.001); XGBoost led with R² = 0.4716.
+          </p>
+        </div>
+      </details>
+      <div class="links">
+        <a href="wudsn_writeup.pdf" target="_blank">Read the writeup (PDF) →</a>
+        <span class="sep">·</span>
+        <a href="wudsn_presentation.pdf" target="_blank">View the presentation (PDF) →</a>
+        <span class="sep">·</span>
+        <a href="https://github.com/siennatalles/datafest-hospital-los" target="_blank">View on GitHub →</a>
+      </div>
+    </div>
 
-<div class="project">
-<h3>Predictive Modeling Project</h3>
-<p>
-Developed a regression model to analyze relationships between multiple predictors and 
-a continuous outcome variable. Conducted full exploratory data analysis, feature engineering, 
-and model validation using cross-validation techniques.
-</p>
-<a href="<a href="https://github.com/siennatalles/Predictive-Modeling-and-Model-Comparison">">View on GitHub →</a>
-</div>
+    <div class="project-card">
+      <div class="project-head">
+        <div class="project-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="6" r="2.2"/><circle cx="19" cy="6" r="2.2"/><circle cx="12" cy="18" r="2.2"/><path d="M6.9 7.3L11 16.5M17.1 7.3L13 16.5M7.2 6h9.6"/></svg></div>
+        <div>
+          <h3>GSOEP Webscraper</h3>
+          <div class="tagline">Documentation pipeline for 100,000+ variables in a decades-long household survey</div>
+        </div>
+      </div>
+      <div class="tools">
+        <span>Python</span><span>Requests</span><span>BeautifulSoup</span><span>Multithreading</span><span>Pandas</span>
+      </div>
+      <details class="project-details">
+        <summary><svg class="chev" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>Problem, approach & result</summary>
+        <div class="details-body">
+          <div class="detail-label">Problem</div>
+          <p class="detail-text">
+            The German Socio-Economic Panel (SOEP-Core) has tracked the same households since 1984
+            across 100,000+ variables. Its documentation exists on paneldata.org, but only as
+            individual per-variable pages, not a consolidated reference researchers could search or
+            filter against.
+          </p>
+          <div class="detail-label">Approach</div>
+          <p class="detail-text">
+            Built a multithreaded scraper against paneldata.org: pulled the full variable list via its
+            search API, resolved indirect links, tagged each variable's source dataset, and scraped
+            summary statistics, years available, and response scale, with retry logic and checkpointing.
+          </p>
+          <div class="detail-label">Result</div>
+          <p class="detail-text">
+            A complete labeling system for the panel, used to prioritize variables for a model predicting
+            personality-based life outcomes at WashU's Personality Measurement and Development Lab.
+          </p>
+        </div>
+      </details>
+      <div class="links">
+        <a href="https://paneldata.org/soep-core/" target="_blank">SOEP-Core documentation →</a>
+        <span class="sep">·</span>
+        <a href="https://github.com/siennatalles/gsoep-webscraper" target="_blank">View on GitHub →</a>
+      </div>
+    </div>
 
-<div class="project">
-<h3>Data Cleaning & Analysis Pipeline</h3>
-<p>
-Designed a structured data cleaning workflow for a real-world dataset, 
-handling missing values, outliers, and feature transformation. 
-Produced visualizations and statistical summaries to extract actionable insights.
-</p>
-<a href="https://github.com/yourusername/project2">View on GitHub →</a>
-</div>
+    <div class="project-card">
+      <div class="project-head">
+        <div class="project-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v9a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1v-9"/></svg></div>
+        <div>
+          <h3>Melbourne Housing Price Prediction</h3>
+          <div class="tagline">Comparing four ML models, and figuring out why feature engineering made them worse</div>
+          <div class="team-credit">With teammate Heidi Schultz</div>
+        </div>
+      </div>
+      <div class="tools">
+        <span>Python</span><span>Scikit-learn</span><span>GridSearchCV</span><span>Linear Regression</span>
+        <span>KNN</span><span>Decision Tree</span><span>Random Forest</span><span>Feature Engineering</span>
+      </div>
+      <details class="project-details">
+        <summary><svg class="chev" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>Problem, approach & result</summary>
+        <div class="details-body">
+          <div class="detail-label">Problem</div>
+          <p class="detail-text">
+            Predicted median housing prices across 13,580 Melbourne listings, comparing four algorithms
+            end to end instead of settling for the first one that worked.
+          </p>
+          <div class="detail-label">Approach</div>
+          <p class="detail-text">
+            Preprocessed with scikit-learn pipelines (imputation, scaling, one-hot encoding), tuned Linear
+            Regression, KNN, Decision Tree, and Random Forest via GridSearchCV, then engineered three new
+            features and retrained all four to compare against the baselines.
+          </p>
+          <div class="detail-label">Result</div>
+          <p class="detail-text">
+            Random Forest performed best both before and after feature engineering (R² = 0.83 baseline).
+            The engineered models did worse overall: aggressive feature selection had discarded weaker
+            predictors that were stabilizing the models.
+          </p>
+        </div>
+      </details>
+      <div class="links">
+        <a href="https://github.com/siennatalles/melbourne-housing-price-prediction" target="_blank">View on GitHub →</a>
+      </div>
+    </div>
 
-<h2>Contact</h2>
-<p>Email: your.email@email.com</p>
-<p>GitHub: https://github.com/yourusername</p>
+    <div class="project-card">
+      <div class="project-head">
+        <div class="project-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="20" x2="5" y2="12"/><line x1="12" y1="20" x2="12" y2="6"/><line x1="19" y1="20" x2="19" y2="15"/></svg></div>
+        <div>
+          <h3>Student Performance Analytics</h3>
+          <div class="tagline">Catching data leakage and finding what actually predicts student outcomes</div>
+          <div class="team-credit">With teammates Gabi Wurgaft, Harrison Arons, Ryan Pemberton, and John Collett</div>
+        </div>
+      </div>
+      <div class="tools">
+        <span>R</span><span>Linear Regression</span><span>Model Diagnostics</span><span>VIF</span>
+        <span>Model Selection</span><span>WLS</span>
+      </div>
+      <details class="project-details">
+        <summary><svg class="chev" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>Problem, approach & result</summary>
+        <div class="details-body">
+          <div class="detail-label">Problem</div>
+          <p class="detail-text">
+            Modeled Overall Score for 10,000 students from a Kaggle dataset, until a suspicious R² of 1
+            revealed the response variable was leaking into its own predictors.
+          </p>
+          <div class="detail-label">Approach</div>
+          <p class="detail-text">
+            Removed the leaking features, ran full diagnostics (variance, normality, leverage, outliers,
+            influence), tested autocorrelation and heteroscedasticity, checked multicollinearity via VIF
+            and condition numbers, and selected a model via exhaustive search and stepwise AIC.
+          </p>
+          <div class="detail-label">Result</div>
+          <p class="detail-text">
+            Every method converged on the same two predictors, attendance percentage and internet access,
+            with a lower AIC than the full model.
+          </p>
+        </div>
+      </details>
+      <div class="links">
+        <a href="Student_Performance_Final_Report.pdf" target="_blank">Read the report (PDF) →</a>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-head">
+        <div class="project-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15a8 8 0 1 1 16 0"/><line x1="12" y1="15" x2="16" y2="10"/><circle cx="12" cy="15" r="1.2" fill="currentColor" stroke="none"/></svg></div>
+        <div>
+          <h3>Personal Dashboard</h3>
+          <div class="tagline">Built entirely with Claude, learning APIs and prompting instead of hand-writing code</div>
+        </div>
+      </div>
+      <div class="tools">
+        <span>Python</span><span>FastAPI</span><span>Async/Concurrency</span><span>OAuth &amp; API Integration</span>
+        <span>Pytest</span><span>AI-Assisted Development</span>
+      </div>
+      <details class="project-details">
+        <summary><svg class="chev" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>Problem, approach & result</summary>
+        <div class="details-body">
+          <div class="detail-label">Problem</div>
+          <p class="detail-text">
+            No productivity app had the exact combination of features I needed, and I wanted a reason to
+            experiment with directing an AI agent rather than writing an app myself.
+          </p>
+          <div class="detail-label">Approach</div>
+          <p class="detail-text">
+            Designed the system (Apple Calendar, Gmail, Canvas, and weather feeding into an AI daily
+            briefing) and directed the full build through Claude, iterating by describing behavior instead
+            of editing code. Learned how OAuth and token-based auth differs across providers, and how to
+            architect connectors as interchangeable modules that fall back gracefully to demo data.
+          </p>
+          <div class="detail-label">Result</div>
+          <p class="detail-text">
+            A FastAPI app with 47 passing tests (fully mocked, no live credentials required), a
+            zero-config demo mode, and a live concurrency benchmark on the dashboard itself.
+          </p>
+        </div>
+      </details>
+      <div class="links">
+        <a href="https://github.com/siennatalles/personal-dashboard" target="_blank">View on GitHub →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <h2>Experience</h2>
+
+    <div class="exp-list">
+      <div class="exp-item">
+        <div class="exp-head">
+          <div><span class="title">Market Research Intern</span> — <span class="org">Ipsos, Innovation Team</span></div>
+          <div class="dates">Jun–Aug 2026</div>
+        </div>
+        <ul>
+          <li>Applied statistical testing and quality-checked questionnaires and survey links to ensure data integrity across financial services, retail, and technology studies.</li>
+          <li>Synthesized survey findings into clear, actionable client reports.</li>
+        </ul>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-head">
+          <div><span class="title">Undergraduate Research Assistant</span> — <span class="org">WashU Personality Measurement and Development Lab</span></div>
+          <div class="dates">Jan 2026–Present</div>
+        </div>
+        <ul>
+          <li>Conduct data engineering and web scraping for the German Socio-Economic Panel, a large-scale longitudinal survey.</li>
+          <li>Support variable prioritization for a model predicting personality-based life outcomes.</li>
+        </ul>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-head">
+          <div><span class="title">Teaching Assistant</span> — <span class="org">CSE 1301: Introduction to Computer Science</span></div>
+          <div class="dates">Aug 2025–Present</div>
+        </div>
+        <ul>
+          <li>Provide Java programming guidance during weekly studio sessions and office hours.</li>
+          <li>Grade papers and assessments.</li>
+        </ul>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-head">
+          <div><span class="title">STEM Counselor</span> — <span class="org">International Ivy</span></div>
+          <div class="dates">Summer 2023</div>
+        </div>
+        <ul>
+          <li>Designed and delivered STEM lessons for middle school students.</li>
+          <li>Mentored students in robotics, programming, and math assignments.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <h2>Skills</h2>
+    <div class="skills-grid">
+      <div class="group">
+        <h4><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>Languages</h4>
+        <div class="pill-list">
+          <span>Python</span><span>R</span><span>SQL</span><span>Java</span>
+          <span>HTML</span><span>CSS</span><span>JavaScript</span>
+        </div>
+      </div>
+      <div class="group">
+        <h4><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8l-9-5-9 5 9 5 9-5z"/><path d="M3 8v8l9 5 9-5V8"/><line x1="12" y1="13" x2="12" y2="21"/></svg>Python Libraries</h4>
+        <div class="pill-list">
+          <span>Pandas</span><span>NumPy</span><span>Scikit-learn</span>
+          <span>Matplotlib</span><span>Seaborn</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="wrap">
+    <h2>Education & Awards</h2>
+
+    <div class="edu-item">
+      <div class="title">B.S. in Data Science, Minors in Mathematics & Business Analytics</div>
+      <div class="org">Washington University in St. Louis, McKelvey School of Engineering</div>
+      <div class="dates">Expected May 2028 · Dean's List, GPA 3.96/4.0</div>
+    </div>
+
+    <div class="edu-item">
+      <div class="title">Introduction to Statistics: Understanding the World through Data</div>
+      <div class="org">London School of Economics and Political Science, Summer School</div>
+      <div class="dates">Summer 2025</div>
+      <p>Examined how data is applied to real-world problems through visualization, numerical summaries, and modeling.</p>
+    </div>
+
+    <div class="edu-item">
+      <div class="title icon-row" style="color: var(--accent-dark);"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"/><path d="M8.5 13l-2 8 5.5-3 5.5 3-2-8"/></svg>Best Use of Statistical Analysis Award</div>
+      <div class="org">ASA DataFest</div>
+      <div class="dates">April 2026</div>
+      <p>Awarded among 18 teams across five universities for statistical analysis on a healthcare dataset.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Sienna Talles · siennatalles@gmail.com
+</footer>
 
 </body>
 </html>
