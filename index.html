@@ -509,19 +509,23 @@
         <div class="details-body">
           <div class="detail-label">Problem</div>
           <p class="detail-text">
-            Modeled Overall Score for 10,000 students from a Kaggle dataset, until a suspicious R² of 1
-            revealed the response variable was leaking into its own predictors.
+            Modeled students' overall scores for 10,000 students from a Kaggle dataset of study
+            habits, attendance, and background factors. An initial model returned a
+            suspicious R² of 1: the scores were actually a weighted sum of sub-scores that were
+            still included as predictors, so the model was just recovering its own answer.
           </p>
           <div class="detail-label">Approach</div>
           <p class="detail-text">
-            Removed the leaking features, ran full diagnostics (variance, normality, leverage, outliers,
-            influence), tested autocorrelation and heteroscedasticity, checked multicollinearity via VIF
-            and condition numbers, and selected a model via exhaustive search and stepwise AIC.
+            After removing the leaking features, tested the corrected model for violations of
+            standard regression assumptions and checked for multicollinearity between predictors.
+            Used several model-selection methods, including stepwise AIC, to find the best-fitting
+            model.
           </p>
           <div class="detail-label">Result</div>
           <p class="detail-text">
-            Every method converged on the same two predictors, attendance percentage and internet access,
-            with a lower AIC than the full model.
+            All the model-selection methods pointed to the same two predictors, attendance
+            percentage and internet access, as the strongest fit, with a lower AIC than the full
+            model that included every feature.
           </p>
         </div>
       </details>
@@ -539,8 +543,8 @@
         </div>
       </div>
       <div class="tools">
-        <span>Python</span><span>FastAPI</span><span>Async/Concurrency</span><span>OAuth &amp; API Integration</span>
-        <span>Pytest</span><span>AI-Assisted Development</span>
+        <span>AI-Assisted Development</span><span>AI Agent Direction</span><span>Prompt Engineering</span>
+        <span>Product Design</span><span>API Integration</span><span>Testing &amp; Verification</span>
       </div>
       <details class="project-details">
         <summary><svg class="chev" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>Problem, approach & result</summary>
@@ -554,14 +558,15 @@
           <div class="detail-label">Approach</div>
           <p class="detail-text">
             Designed the system (Apple Calendar, Gmail, Canvas, and weather feeding into an AI daily
-            briefing) and directed the full build through Claude, iterating by describing behavior instead
-            of editing code. Learned how OAuth and token-based auth differs across providers, and how to
-            architect connectors as interchangeable modules that fall back gracefully to demo data.
+            briefing) and directed the full build through Claude. Learned how to write instructions precise
+            enough for an agent to act on, catch when its output didn't match what I asked for, and
+            iterate through prompting.
           </p>
           <div class="detail-label">Result</div>
           <p class="detail-text">
-            A FastAPI app with 47 passing tests (fully mocked, no live credentials required), a
-            zero-config demo mode, and a live concurrency benchmark on the dashboard itself.
+            A fully working app that pulls from four real APIs concurrently, with automated tests, a
+            demo mode, and a live comparison built into the dashboard showing the efficiency gain from
+            running every connector at once instead of one at a time.
           </p>
         </div>
       </details>
