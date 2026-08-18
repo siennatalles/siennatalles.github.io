@@ -375,8 +375,8 @@
         </div>
       </div>
       <div class="tools">
-        <span>Python</span><span>Machine Learning</span><span>GLM (Gamma / log-link)</span><span>XGBoost</span><span>Random Forest</span>
-        <span>ICD-10 Classification</span><span>Data Visualization</span>
+        <span>Python</span><span>Machine Learning</span><span>XGBoost</span><span>Random Forest</span>
+        <span>Linear Regression</span><span>ICD-10 Classification</span><span>Data Visualization</span>
       </div>
       <details class="project-details">
         <summary><svg class="chev" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>Problem, approach & results</summary>
@@ -389,8 +389,9 @@
           </p>
           <div class="detail-label">Approach</div>
           <p class="detail-text">
-            GLM with a Gamma distribution and log link, ICD-10 chapter classification, and machine
-            learning models including XGBoost.
+            Cleaned and explored seven healthcare datasets in Python, engineered length of stay
+            from admission and discharge timestamps, and built Linear Regression and Random Forest
+            models, alongside ICD-10 chapter classification to categorize diagnoses.
           </p>
           <div class="detail-label">Results</div>
           <p class="detail-text">
@@ -415,7 +416,7 @@
         <div class="project-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="6" r="2.2"/><circle cx="19" cy="6" r="2.2"/><circle cx="12" cy="18" r="2.2"/><path d="M6.9 7.3L11 16.5M17.1 7.3L13 16.5M7.2 6h9.6"/></svg></div>
         <div>
           <h3>GSOEP Webscraper</h3>
-          <div class="tagline">Documentation pipeline for 100,000+ variables in a decades-long household survey</div>
+          <div class="tagline">Documentation pipeline for 125,000+ variables in a decades-long household survey</div>
         </div>
       </div>
       <div class="tools">
@@ -427,15 +428,16 @@
           <div class="detail-label">Problem</div>
           <p class="detail-text">
             The German Socio-Economic Panel (SOEP-Core) has tracked the same households since 1984
-            across 100,000+ variables. Its documentation exists on paneldata.org, but only as
-            individual per-variable pages, not a consolidated reference researchers could search or
-            filter against.
+            across 125,000+ variables spanning 600+ datasets. Its documentation exists on
+            paneldata.org, but only as individual per-variable pages, not a consolidated reference
+            researchers could search or filter against.
           </p>
           <div class="detail-label">Approach</div>
           <p class="detail-text">
             Built a multithreaded scraper against paneldata.org: pulled the full variable list via its
-            search API, resolved indirect links, tagged each variable's source dataset, and scraped
-            summary statistics, years available, and response scale, with retry logic and checkpointing.
+            search API, resolved indirect links and pagination, tagged each variable's source dataset,
+            and scraped summary statistics, years available, and response scale, with retry logic and
+            checkpointing. Restructured the results into JSON/CSV pipelines for downstream use.
           </p>
           <div class="detail-label">Result</div>
           <p class="detail-text">
@@ -511,8 +513,9 @@
           <p class="detail-text">
             Modeled students' overall scores for 10,000 students from a Kaggle dataset of study
             habits, attendance, and background factors. An initial model returned a
-            suspicious R² of 1: the scores were actually a weighted sum of sub-scores that were
-            still included as predictors, so the model was just recovering its own answer.
+            suspicious R² of 1: this was target leakage, since the scores were actually a weighted
+            sum of sub-scores that were still included as predictors, so the model was just
+            recovering its own answer.
           </p>
           <div class="detail-label">Approach</div>
           <p class="detail-text">
@@ -585,11 +588,11 @@
       <div class="exp-item">
         <div class="exp-head">
           <div><span class="title">Market Research Intern</span> — <span class="org">Ipsos, Innovation Team</span></div>
-          <div class="dates">Jun–Aug 2026</div>
+          <div class="dates">June 2026–Present</div>
         </div>
         <ul>
-          <li>Applied statistical testing and quality-checked questionnaires and survey links to ensure data integrity across financial services, retail, and technology studies.</li>
-          <li>Synthesized survey findings into clear, actionable client reports.</li>
+          <li>Assisted with survey design, tested live survey links for functionality and logic, and cleaned the resulting data, maintaining data integrity across concept and product studies for financial services, retail, and technology clients.</li>
+          <li>Applied statistical significance testing and analyzed output from MaxDiff and TURF simulators alongside survey results, identifying key findings that shaped actionable client recommendations.</li>
         </ul>
       </div>
 
@@ -599,8 +602,8 @@
           <div class="dates">Jan 2026–Present</div>
         </div>
         <ul>
-          <li>Conduct data engineering and web scraping for the German Socio-Economic Panel, a large-scale longitudinal survey.</li>
-          <li>Support variable prioritization for a model predicting personality-based life outcomes.</li>
+          <li>Built a Python web scraping framework extracting 125,000+ variables across 600+ datasets from the German Socio-Economic Panel, handling multithreaded requests, retry logic, and API pagination.</li>
+          <li>Restructured scraped data into JSON/CSV pipelines to support variable prioritization for a model predicting personality-based life outcomes.</li>
         </ul>
       </div>
 
@@ -610,8 +613,8 @@
           <div class="dates">Aug 2025–Present</div>
         </div>
         <ul>
-          <li>Provide Java programming guidance during weekly studio sessions and office hours.</li>
-          <li>Grade papers and assessments.</li>
+          <li>Guide students through Java programming fundamentals and debugging during weekly studio sessions and office hours, breaking down core computer science concepts into clear, approachable explanations.</li>
+          <li>Grade assignments and assessments for accuracy and logic, providing feedback to reinforce correct problem-solving approaches.</li>
         </ul>
       </div>
 
