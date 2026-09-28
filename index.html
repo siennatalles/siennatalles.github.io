@@ -34,7 +34,9 @@
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     color: var(--ink);
-    background: var(--bg);
+    background-color: var(--bg);
+    background-image: radial-gradient(rgba(44,90,160,.07) 1px, transparent 1.4px);
+    background-size: 22px 22px;
     line-height: 1.6;
   }
   a { color: var(--accent); text-decoration: none; }
@@ -233,6 +235,10 @@
   .project-details[open] summary .chev { transform: rotate(90deg); }
   .details-body { padding-top: 16px; }
   .details-body .detail-label:first-child { margin-top: 0; }
+  .detail-list { margin: 0; padding-left: 18px; color: var(--muted); font-size: 0.93rem; line-height: 1.6; }
+  .detail-list li { margin-bottom: 5px; }
+  .detail-list li:last-child { margin-bottom: 0; }
+  .detail-list li::marker { color: var(--accent); }
   .project-card .links { margin-top: 16px; font-size: 0.88rem; font-weight: 600; }
   .project-card .links .sep { color: var(--muted-soft); font-weight: 400; margin: 0 4px; }
 
@@ -338,16 +344,19 @@
     </div>
     <p class="summary">
       Junior at Washington University in St. Louis studying Data Science with minors in
-      Mathematics and Business Analytics. Skilled in statistical modeling, predictive analytics, and
-      building data pipelines using Python, R, and SQL. Interested in learning how firms apply data
-      and quantitative methods to inform key business decisions. Known as an analytical thinker with
-      a strong work ethic. Comfortable working independently and as part of a collaborative team.
+      Mathematics and Business Analytics. Skilled in quantitative research, statistical modeling,
+      predictive analytics, and building data pipelines using Python, R, and SQL. Interested in
+      learning how firms apply data and quantitative methods to inform key business decisions,
+      particularly in financial markets.
+      Known as an analytical thinker with a strong work ethic. Comfortable working independently
+      and as part of a collaborative team.
     </p>
     <div class="contact-row">
       <a href="mailto:siennatalles@gmail.com"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>siennatalles@gmail.com</a>
       <span><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>(917) 612-9283</span>
       <a href="https://www.linkedin.com/in/sienna-talles/" target="_blank"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a5 5 0 0 0 7.5.5l2-2a5 5 0 0 0-7-7l-1 1"/><path d="M14 10a5 5 0 0 0-7.5-.5l-2 2a5 5 0 0 0 7 7l1-1"/></svg>LinkedIn</a>
       <a href="https://github.com/siennatalles" target="_blank"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="3" x2="6" y2="15"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="6" r="3"/><path d="M18 9a9 9 0 0 1-9 9"/></svg>GitHub</a>
+      <a href="Sienna_Talles_Resume.pdf" target="_blank"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><polyline points="7 10 12 15 17 10"/><path d="M5 19h14"/></svg>Resume</a>
     </div>
   </div>
 </header>
@@ -364,6 +373,85 @@
 <section id="projects">
   <div class="wrap">
     <h2>Projects</h2>
+
+    <div class="project-card">
+      <div class="project-head">
+        <div class="project-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="4" x2="6" y2="20"/><rect x="4" y="9" width="4" height="7"/><line x1="14" y1="2" x2="14" y2="22"/><rect x="12" y="6" width="4" height="10"/></svg></div>
+        <div>
+          <h3>Optiver Realized Volatility Prediction Competition</h3>
+          <div class="tagline">Cut prediction error (RMSPE) from 0.341 to 0.249 using LightGBM</div>
+        </div>
+      </div>
+      <div class="tools">
+        <span>Python</span><span>Pandas</span><span>NumPy</span><span>Scikit-learn</span>
+        <span>Linear Regression</span><span>LightGBM</span><span>Feature Engineering</span>
+      </div>
+      <details class="project-details">
+        <summary><svg class="chev" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>Problem, approach & result</summary>
+        <div class="details-body">
+          <div class="detail-label">Problem</div>
+          <p class="detail-text">
+            Kaggle Code competition: given order book and trade data from a fixed 10-minute window,
+            predict the realized volatility of the next 10-minute window, across 429,000 windows
+            spanning 112 stocks.
+          </p>
+          <div class="detail-label">Approach</div>
+          <ul class="detail-list">
+            <li>Computed weighted average price and log returns to calculate realized volatility</li>
+            <li>Engineered book, trade, and market-wide features: smaller-window volatility, bid-ask spread, trading activity, and cross-stock average volatility</li>
+            <li>Compared naive baseline, Linear Regression, and LightGBM models using grouped time-window cross-validation so the same window never appeared in both training and validation</li>
+          </ul>
+          <div class="detail-label">Result</div>
+          <ul class="detail-list">
+            <li>Reduced RMSPE from 0.341 (naive baseline) to 0.249, with LightGBM as the best-performing model</li>
+          </ul>
+        </div>
+      </details>
+      <div class="links">
+        <a href="https://github.com/siennatalles/optiver-realized-volatility-prediction-competition" target="_blank">View on GitHub →</a>
+        <span class="sep">·</span>
+        <a href="https://www.kaggle.com/competitions/optiver-realized-volatility-prediction" target="_blank">View competition on Kaggle →</a>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-head">
+        <div class="project-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l4-3 3 4 4-10 3 6 4-3"/><line x1="12" y1="3" x2="12" y2="21" stroke-dasharray="2 2"/></svg></div>
+        <div>
+          <h3>Earnings Announcement Effects on Options Implied Volatility</h3>
+          <div class="tagline">Confirmed near-term options carry higher implied volatility around earnings announcements (p = 0.01)</div>
+        </div>
+      </div>
+      <div class="tools">
+        <span>Python</span><span>yfinance</span><span>Pandas</span><span>SciPy</span>
+        <span>Statistical Testing</span><span>Data Visualization</span>
+      </div>
+      <details class="project-details">
+        <summary><svg class="chev" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>Problem, approach & result</summary>
+        <div class="details-body">
+          <div class="detail-label">Problem</div>
+          <p class="detail-text">
+            Do options expiring shortly after a company's earnings announcement carry higher implied
+            volatility than later-dated options on the same stock, and how does it evolve as the
+            announcement approaches?
+          </p>
+          <div class="detail-label">Approach</div>
+          <ul class="detail-list">
+            <li>Pulled live option chains and earnings dates for 31 large-cap tickers across technology, financials, healthcare, energy, and consumer sectors via the yfinance API</li>
+            <li>Classified options as near-term or far-term relative to each ticker's earnings date, and computed at-the-money implied volatility for each</li>
+            <li>Engineered an event-variance metric to isolate the earnings-specific effect from normal volatility term structure, validated with a one-sided t-test</li>
+            <li>Built an automated daily pipeline tracking the same option through its earnings announcement</li>
+          </ul>
+          <div class="detail-label">Result</div>
+          <ul class="detail-list">
+            <li>Confirmed near-term options carry significantly higher implied volatility around earnings (p = 0.01), with daily tracking showing implied volatility rising into the announcement and dropping sharply afterward</li>
+          </ul>
+        </div>
+      </details>
+      <div class="links">
+        <a href="https://github.com/siennatalles/earnings-announcement-effects-on-options-implied-volatility" target="_blank">View on GitHub →</a>
+      </div>
+    </div>
 
     <div class="project-card">
       <div class="project-head">
@@ -388,18 +476,17 @@
             department affect a patient's length of stay in their hospital dataset.
           </p>
           <div class="detail-label">Approach</div>
-          <p class="detail-text">
-            Cleaned and explored seven healthcare datasets in Python, engineered length of stay
-            from admission and discharge timestamps, and built Linear Regression and Random Forest
-            models, alongside ICD-10 chapter classification to categorize diagnoses.
-          </p>
+          <ul class="detail-list">
+            <li>Cleaned and explored seven healthcare datasets in Python</li>
+            <li>Engineered length of stay from admission and discharge timestamps</li>
+            <li>Built Linear Regression and Random Forest models, alongside ICD-10 chapter classification to categorize diagnoses</li>
+          </ul>
           <div class="detail-label">Results</div>
-          <p class="detail-text">
-            Best Use of Statistical Analysis award among 18 teams, 5 universities. We pinpointed which
-            departments, diseases, and months/seasons had longest length of stay on average, giving SVH
-            guidance on where to reallocate resources. Non-flu season stays were 3% shorter than flu
-            season stays (p &lt; 0.001); XGBoost led with R² = 0.4716.
-          </p>
+          <ul class="detail-list">
+            <li>Best Use of Statistical Analysis award among 18 teams, 5 universities</li>
+            <li>Pinpointed which departments, diseases, and months/seasons had the longest length of stay on average, giving SVH guidance on where to reallocate resources</li>
+            <li>Non-flu season stays were 3% shorter than flu season stays (p &lt; 0.001); XGBoost led with R² = 0.4716</li>
+          </ul>
         </div>
       </details>
       <div class="links">
@@ -416,7 +503,7 @@
         <div class="project-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="6" r="2.2"/><circle cx="19" cy="6" r="2.2"/><circle cx="12" cy="18" r="2.2"/><path d="M6.9 7.3L11 16.5M17.1 7.3L13 16.5M7.2 6h9.6"/></svg></div>
         <div>
           <h3>GSOEP Webscraper</h3>
-          <div class="tagline">Documentation pipeline for 125,000+ variables in a decades-long household survey</div>
+          <div class="tagline">Consolidated 125,000+ scattered variables into one searchable reference</div>
         </div>
       </div>
       <div class="tools">
@@ -433,17 +520,15 @@
             researchers could search or filter against.
           </p>
           <div class="detail-label">Approach</div>
-          <p class="detail-text">
-            Built a multithreaded scraper against paneldata.org: pulled the full variable list via its
-            search API, resolved indirect links and pagination, tagged each variable's source dataset,
-            and scraped summary statistics, years available, and response scale, with retry logic and
-            checkpointing. Restructured the results into JSON/CSV pipelines for downstream use.
-          </p>
+          <ul class="detail-list">
+            <li>Built a multithreaded scraper against paneldata.org: pulled the full variable list via its search API, resolved indirect links and pagination, and tagged each variable's source dataset</li>
+            <li>Scraped summary statistics, years available, and response scale for each variable, with retry logic and checkpointing</li>
+            <li>Restructured the results into JSON/CSV pipelines for downstream use</li>
+          </ul>
           <div class="detail-label">Result</div>
-          <p class="detail-text">
-            A complete labeling system for the panel, used to prioritize variables for a model predicting
-            personality-based life outcomes at WashU's Personality Measurement and Development Lab.
-          </p>
+          <ul class="detail-list">
+            <li>A complete labeling system for the panel, used to prioritize variables for a model predicting personality-based life outcomes at WashU's Personality Measurement and Development Lab</li>
+          </ul>
         </div>
       </details>
       <div class="links">
@@ -458,7 +543,7 @@
         <div class="project-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v9a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1v-9"/></svg></div>
         <div>
           <h3>Melbourne Housing Price Prediction</h3>
-          <div class="tagline">Comparing four ML models, and figuring out why feature engineering made them worse</div>
+          <div class="tagline">Random Forest reached R² = 0.83, then feature engineering made it worse, and I found out why</div>
           <div class="team-credit">With teammate Heidi Schultz</div>
         </div>
       </div>
@@ -475,17 +560,16 @@
             end to end instead of settling for the first one that worked.
           </p>
           <div class="detail-label">Approach</div>
-          <p class="detail-text">
-            Preprocessed with scikit-learn pipelines (imputation, scaling, one-hot encoding), tuned Linear
-            Regression, KNN, Decision Tree, and Random Forest via GridSearchCV, then engineered three new
-            features and retrained all four to compare against the baselines.
-          </p>
+          <ul class="detail-list">
+            <li>Preprocessed the data with scikit-learn pipelines (imputation, scaling, one-hot encoding)</li>
+            <li>Tuned Linear Regression, KNN, Decision Tree, and Random Forest via GridSearchCV</li>
+            <li>Engineered three new features and retrained all four models to compare against the baselines</li>
+          </ul>
           <div class="detail-label">Result</div>
-          <p class="detail-text">
-            Random Forest performed best both before and after feature engineering (R² = 0.83 baseline).
-            The engineered models did worse overall: aggressive feature selection had discarded weaker
-            predictors that were stabilizing the models.
-          </p>
+          <ul class="detail-list">
+            <li>Random Forest performed best both before and after feature engineering (R² = 0.83 baseline)</li>
+            <li>The engineered models did worse overall: aggressive feature selection had discarded weaker predictors that were stabilizing the models</li>
+          </ul>
         </div>
       </details>
       <div class="links">
@@ -498,7 +582,7 @@
         <div class="project-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="20" x2="5" y2="12"/><line x1="12" y1="20" x2="12" y2="6"/><line x1="19" y1="20" x2="19" y2="15"/></svg></div>
         <div>
           <h3>Student Performance Analytics</h3>
-          <div class="tagline">Catching data leakage and finding what actually predicts student outcomes</div>
+          <div class="tagline">Caught a data leakage bug, then found attendance and internet access were the real predictors</div>
           <div class="team-credit">With teammates Gabi Wurgaft, Harrison Arons, Ryan Pemberton, and John Collett</div>
         </div>
       </div>
@@ -518,18 +602,15 @@
             recovering its own answer.
           </p>
           <div class="detail-label">Approach</div>
-          <p class="detail-text">
-            After removing the leaking features, tested the corrected model for violations of
-            standard regression assumptions and checked for multicollinearity between predictors.
-            Used several model-selection methods, including stepwise AIC, to find the best-fitting
-            model.
-          </p>
+          <ul class="detail-list">
+            <li>Removed the leaking features, then tested the corrected model for violations of standard regression assumptions</li>
+            <li>Checked for multicollinearity between predictors</li>
+            <li>Used several model-selection methods, including stepwise AIC, to find the best-fitting model</li>
+          </ul>
           <div class="detail-label">Result</div>
-          <p class="detail-text">
-            All the model-selection methods pointed to the same two predictors, attendance
-            percentage and internet access, as the strongest fit, with a lower AIC than the full
-            model that included every feature.
-          </p>
+          <ul class="detail-list">
+            <li>All the model-selection methods pointed to the same two predictors, attendance percentage and internet access, as the strongest fit, with a lower AIC than the full model that included every feature</li>
+          </ul>
         </div>
       </details>
       <div class="links">
@@ -559,18 +640,16 @@
             features I needed.
           </p>
           <div class="detail-label">Approach</div>
-          <p class="detail-text">
-            Designed the system (Apple Calendar, Gmail, Canvas, and weather feeding into an AI daily
-            briefing) and directed the full build through Claude. Learned how to write instructions precise
-            enough for an agent to act on, catch when its output didn't match what I asked for, and
-            iterate through prompting.
-          </p>
+          <ul class="detail-list">
+            <li>Designed the system (Apple Calendar, Gmail, Canvas, and weather feeding into an AI daily briefing) and directed the full build through Claude</li>
+            <li>Learned how to write instructions precise enough for an agent to act on</li>
+            <li>Caught when its output didn't match what I asked for, and iterated through prompting</li>
+          </ul>
           <div class="detail-label">Result</div>
-          <p class="detail-text">
-            A fully working app that pulls from four real APIs concurrently, with automated tests, a
-            demo mode, and a live comparison built into the dashboard showing the efficiency gain from
-            running every connector at once instead of one at a time.
-          </p>
+          <ul class="detail-list">
+            <li>A fully working app that pulls from four real APIs concurrently, with automated tests and a demo mode built in</li>
+            <li>A live comparison built into the dashboard showing the efficiency gain from running every connector at once instead of one at a time</li>
+          </ul>
         </div>
       </details>
       <div class="links">
@@ -587,23 +666,23 @@
     <div class="exp-list">
       <div class="exp-item">
         <div class="exp-head">
-          <div><span class="title">Market Research Intern</span> — <span class="org">Ipsos, Innovation Team</span></div>
+          <div><span class="title">Market Research Intern (Quantitative Analytics)</span> — <span class="org">Ipsos, Innovation Team</span></div>
           <div class="dates">June 2026–Present</div>
         </div>
         <ul>
-          <li>Assisted with survey design, tested live survey links for functionality and logic, and cleaned the resulting data, maintaining data integrity across concept and product studies for financial services, retail, and technology clients.</li>
-          <li>Applied statistical significance testing and analyzed output from MaxDiff and TURF simulators alongside survey results, identifying key findings that shaped actionable client recommendations.</li>
+          <li>Assisted with survey design, tested live survey links for functionality and logic, and cleaned the resulting data, maintaining data integrity across concept and product studies for clients in financial services, retail, and technology.</li>
+          <li>Applied statistical significance testing and analyzed output from MaxDiff and TURF simulators alongside quantitative and qualitative survey results, identifying key findings that shaped actionable recommendations delivered in client reports.</li>
         </ul>
       </div>
 
       <div class="exp-item">
         <div class="exp-head">
           <div><span class="title">Undergraduate Research Assistant</span> — <span class="org">WashU Personality Measurement and Development Lab</span></div>
-          <div class="dates">Jan 2026–Present</div>
+          <div class="dates">Jan–Aug 2026</div>
         </div>
         <ul>
           <li>Built a Python web scraping framework extracting 125,000+ variables across 600+ datasets from the German Socio-Economic Panel, handling multithreaded requests, retry logic, and API pagination.</li>
-          <li>Restructured scraped data into JSON/CSV pipelines to support variable prioritization for a model predicting personality-based life outcomes.</li>
+          <li>Restructured data into JSON/CSV pipelines to support variable prioritization for a model predicting personality-based life outcomes.</li>
         </ul>
       </div>
 
@@ -615,17 +694,6 @@
         <ul>
           <li>Guide students through Java programming fundamentals and debugging during weekly studio sessions and office hours, breaking down core computer science concepts into clear, approachable explanations.</li>
           <li>Grade assignments and assessments for accuracy and logic, providing feedback to reinforce correct problem-solving approaches.</li>
-        </ul>
-      </div>
-
-      <div class="exp-item">
-        <div class="exp-head">
-          <div><span class="title">STEM Counselor</span> — <span class="org">International Ivy</span></div>
-          <div class="dates">Summer 2023</div>
-        </div>
-        <ul>
-          <li>Designed and delivered STEM lessons for middle school students.</li>
-          <li>Mentored students in robotics, programming, and math assignments.</li>
         </ul>
       </div>
     </div>
@@ -647,7 +715,8 @@
         <h4><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8l-9-5-9 5 9 5 9-5z"/><path d="M3 8v8l9 5 9-5V8"/><line x1="12" y1="13" x2="12" y2="21"/></svg>Python Libraries</h4>
         <div class="pill-list">
           <span>Pandas</span><span>NumPy</span><span>Scikit-learn</span>
-          <span>Matplotlib</span><span>Seaborn</span>
+          <span>Matplotlib</span><span>Seaborn</span><span>LightGBM</span>
+          <span>SciPy</span><span>yfinance</span>
         </div>
       </div>
     </div>
