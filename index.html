@@ -93,11 +93,16 @@
     border-radius: var(--radius-sm);
     letter-spacing: 0.01em;
   }
+  .hero-facts { display: flex; flex-wrap: wrap; align-items: center; row-gap: 6px; margin-top: 26px; font-size: 0.92rem; font-weight: 600; color: var(--navy-soft); }
+  .hero-facts span { padding: 0 16px; border-left: 1px solid rgba(255,255,255,.28); }
+  .hero-facts span:first-child { padding-left: 0; border-left: none; }
+  .hero-seek { margin-top: 12px; color: #8fb4ea; font-weight: 700; font-size: 1.02rem; line-height: 1.5; }
+  .hero-pills { display: flex; flex-wrap: wrap; gap: 8px; }
   header.hero p.summary {
     color: var(--navy-soft);
     max-width: 620px;
     font-size: 1.03rem;
-    margin: 24px 0 0;
+    margin: 20px 0 0;
   }
   .contact-row {
     margin-top: 22px;
@@ -274,6 +279,7 @@
     grid-template-columns: 1fr 1fr;
     gap: 28px;
   }
+  .skills-grid .group.wide { grid-column: 1 / -1; }
   .skills-grid .group h4 {
     display: inline-flex;
     align-items: center;
@@ -339,9 +345,13 @@
       <img src="headshot.jpg" alt="Sienna Talles" class="hero-photo">
       <div>
         <h1>Sienna Talles</h1>
-        <div class="role">Data Science, Math & Business Analytics</div>
+        <div class="hero-pills">
+          <div class="role">Data Science, Math & Business Analytics</div>
+        </div>
       </div>
     </div>
+    <div class="hero-facts"><span>WashU '28</span><span>GPA 3.96</span><span>Dean's List</span></div>
+    <div class="hero-seek">Seeking Summer 2027 internships in quantitative research, trading, and data science</div>
     <p class="summary">
       Junior at Washington University in St. Louis studying Data Science with minors in
       Mathematics and Business Analytics. Skilled in quantitative research, statistical modeling,
@@ -457,7 +467,7 @@
       <div class="project-head">
         <div class="project-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l2-7 4 14 2-7h6"/></svg></div>
         <div>
-          <h3>Analyzing Encounter Duration in the SVH System — ASA DataFest</h3>
+          <h3>ASA DataFest - Analyzing Encounter Duration in the SVH System</h3>
           <div class="tagline">Best Use of Statistical Analysis Award, 18 teams, 5 universities</div>
           <div class="team-credit">With teammates Chloe Shin, Melissa Wang, Harrison Arons, and Zhiyao Wu</div>
         </div>
@@ -717,6 +727,14 @@
           <span>Pandas</span><span>NumPy</span><span>Scikit-learn</span>
           <span>Matplotlib</span><span>Seaborn</span><span>LightGBM</span>
           <span>SciPy</span><span>yfinance</span>
+        </div>
+      </div>
+      <div class="group wide">
+        <h4><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 17 9 11 13 15 21 7"/><polyline points="15 7 21 7 21 13"/></svg>Methods</h4>
+        <div class="pill-list">
+          <span>Volatility Modeling</span><span>Regression &amp; Model Diagnostics</span><span>Statistical Testing</span>
+          <span>Machine Learning</span><span>Feature Engineering</span><span>Cross-Validation</span>
+          <span>Web Scraping</span><span>Survey Analysis (MaxDiff, TURF)</span>
         </div>
       </div>
     </div>
